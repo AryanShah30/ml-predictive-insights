@@ -4,30 +4,34 @@ import numpy as np
 from streamlit_option_menu import option_menu
 
 loan_model = pickle.load(
-    open("loan_model.sav",
-         "rb",
-         )
+    open(
+        "loan_model.sav",
+        "rb",
+    )
 )
 
 medical_insurance = pickle.load(
-    open("medical_insurance.sav",
-         "rb",
-         )
+    open(
+        "medical_insurance.sav",
+        "rb",
+    )
 )
 
 spam_model = pickle.load(
-    open("spam_model.sav",
-         "rb",
-         )
+    open(
+        "spam_model.sav",
+        "rb",
+    )
 )
 
 titanic_model = pickle.load(
-    open("titanic_model.sav",
-         "rb",
-         )
+    open(
+        "titanic_model.sav",
+        "rb",
+    )
 )
 
-vectorizer_model = pickle.load(open("vec.sav",'rb'))
+vectorizer_model = pickle.load(open("vec.sav", "rb"))
 
 st.set_page_config(page_title="Predictive Insights", page_icon="🔮", layout="wide")
 
@@ -39,20 +43,28 @@ with st.sidebar:
             "Loan Status Prediction",
             "Medical Insurance Cost Prediction",
             "Spam Mail Prediction",
-            "Titanic Survival Prediction"
+            "Titanic Survival Prediction",
         ],
-        icons=['bookmark', 'piggy-bank', 'coin', 'envelope', 'life-preserver'],
-        default_index=0
+        icons=["bookmark", "piggy-bank", "coin", "envelope", "life-preserver"],
+        default_index=0,
     )
 
-if selected == 'Index':
+if selected == "Index":
     st.title("Machine Learning Predictive Insights")
     st.markdown("---")
     st.subheader(" Explore our models designed to predict various outcomes:")
-    st.write("- Loan Status Prediction: Predict whether a loan will be approved or rejected.")
-    st.write("- Medical Insurance Cost Prediction: Estimate medical insurance costs based on individual factors.")
-    st.write("- Spam Mail Prediction: Determine if an email is likely to be spam or normal.")
-    st.write("- Titanic Survival Prediction: Predict survival chances on the Titanic based on passenger details.")
+    st.write(
+        "- Loan Status Prediction: Predict whether a loan will be approved or rejected."
+    )
+    st.write(
+        "- Medical Insurance Cost Prediction: Estimate medical insurance costs based on individual factors."
+    )
+    st.write(
+        "- Spam Mail Prediction: Determine if an email is likely to be spam or normal."
+    )
+    st.write(
+        "- Titanic Survival Prediction: Predict survival chances on the Titanic based on passenger details."
+    )
     st.write("Select a prediction task from the sidebar to get started.")
 
 if selected == "Loan Status Prediction":
@@ -81,19 +93,7 @@ if selected == "Loan Status Prediction":
 
     if st.button("Loan Status Result"):
 
-        user_input = [
-            g,
-            m,
-            d,
-            e,
-            s,
-            a,
-            c,
-            l,
-            lt,
-            ch,
-            p
-        ]
+        user_input = [g, m, d, e, s, a, c, l, lt, ch, p]
         user_input = np.array([float(x) for x in user_input]).reshape(1, -1)
 
         loan_prediction = loan_model.predict(user_input)
@@ -119,14 +119,7 @@ if selected == "Medical Insurance Cost Prediction":
 
     if st.button("Medical Insurance Cost"):
 
-        user_input = [
-            a,
-            s,
-            b,
-            ch,
-            sm,
-            r
-        ]
+        user_input = [a, s, b, ch, sm, r]
         user_input = np.array([float(x) for x in user_input]).reshape(1, -1)
 
         insurance_cost = medical_insurance.predict(user_input)
@@ -145,9 +138,9 @@ if selected == "Spam Mail Prediction":
 
         prediction = spam_model.predict(inp_transformed)
         if prediction[0] == 1:
-            spam_status = 'Normal Email'
+            spam_status = "Normal Email"
         else:
-            spam_status = 'Spam Email'
+            spam_status = "Spam Email"
 
     st.success(spam_status)
 
@@ -165,22 +158,24 @@ if selected == "Titanic Survival Prediction":
     titanic_survival = ""
 
     if st.button("Titanic Survival Predictor"):
-            p = float(p)
-            a = float(a)
-            sibsp = float(sibsp)
-            parch = float(parch)
-            f = float(f)
+        p = float(p)
+        a = float(a)
+        sibsp = float(sibsp)
+        parch = float(parch)
+        f = float(f)
 
-            sex_encoded = 1 if s == "Female" else 0
-            embark_encoded = {"C": 1, "Q": 2, "S": 0}[e]
+        sex_encoded = 1 if s == "Female" else 0
+        embark_encoded = {"C": 1, "Q": 2, "S": 0}[e]
 
-            user_input = np.array([p, sex_encoded, a, sibsp, parch, f, embark_encoded]).reshape(1, -1)
+        user_input = np.array(
+            [p, sex_encoded, a, sibsp, parch, f, embark_encoded]
+        ).reshape(1, -1)
 
-            survival = titanic_model.predict(user_input)
+        survival = titanic_model.predict(user_input)
 
-            if survival[0] == 1:
-                titanic_survival = "Alive"
-            else:
-                titanic_survival = "Dead"
+        if survival[0] == 1:
+            titanic_survival = "Alive"
+        else:
+            titanic_survival = "Dead"
 
     st.success(f"Predicted Survival: {titanic_survival}")
