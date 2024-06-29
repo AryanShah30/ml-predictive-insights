@@ -3,11 +3,31 @@ import streamlit as st
 import numpy as np
 from streamlit_option_menu import option_menu
 
-loan_model = pickle.load(open("loan_model.sav", "rb"))
-medical_insurance = pickle.load(open("medical_insurance.sav", "rb"))
-spam_model = pickle.load(open("spam_model.sav", "rb"))
-titanic_model = pickle.load(open("titanic_model.sav", "rb"))
-vectorizer_model = pickle.load(open("vec.sav", "rb"))
+loan_model = pickle.load(
+    open("loan_model.sav",
+         "rb",
+         )
+)
+
+medical_insurance = pickle.load(
+    open("medical_insurance.sav",
+         "rb",
+         )
+)
+
+spam_model = pickle.load(
+    open("spam_model.sav",
+         "rb",
+         )
+)
+
+titanic_model = pickle.load(
+    open("titanic_model.sav",
+         "rb",
+         )
+)
+
+vectorizer_model = pickle.load(open("vec.sav",'rb'))
 
 st.set_page_config(page_title="Predictive Insights", page_icon="🔮", layout="wide")
 
