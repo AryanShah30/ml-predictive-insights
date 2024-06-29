@@ -5,32 +5,30 @@ import numpy as np
 from streamlit_option_menu import option_menu
 
 loan_model = pickle.load(
-    open("D:/Internship - Machine Learning/Projects/ML Project - ML Predictive Insights/saved models/loan_model.sav",
+    open("loan_model.sav",
          "rb",
          )
 )
 
 medical_insurance = pickle.load(
-    open("D:/Internship - Machine Learning/Projects/ML Project - ML Predictive Insights/saved "
-         "models/medical_insurance.sav",
+    open("medical_insurance.sav",
          "rb",
          )
 )
 
 spam_model = pickle.load(
-    open("D:/Internship - Machine Learning/Projects/ML Project - ML Predictive Insights/saved models/spam_model.sav",
+    open("spam_model.sav",
          "rb",
          )
 )
 
 titanic_model = pickle.load(
-    open("D:/Internship - Machine Learning/Projects/ML Project - ML Predictive Insights/saved models/titanic_model.sav",
+    open("titanic_model.sav",
          "rb",
          )
 )
 
-vectorizer_model = pickle.load(open("D:/Internship - Machine Learning/Projects/ML Project - ML Predictive "
-                                    "Insights/saved models/vec.sav",'rb'))
+vectorizer_model = pickle.load(open("vec.sav",'rb'))
 
 st.set_page_config(page_title="Predictive Insights", page_icon="🔮", layout="wide")
 
