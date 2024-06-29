@@ -1,6 +1,5 @@
 import pickle
 import streamlit as st
-import sklearn
 import numpy as np
 from streamlit_option_menu import option_menu
 
