@@ -44,8 +44,9 @@ with st.sidebar:
             "Medical Insurance Cost Prediction",
             "Spam Mail Prediction",
             "Titanic Survival Prediction",
+            "Connect"
         ],
-        icons=["bookmark", "piggy-bank", "coin", "envelope", "life-preserver"],
+        icons=["bookmark", "piggy-bank", "coin", "envelope", "life-preserver", "person-lines-fill"],
         default_index=0,
     )
 
@@ -179,3 +180,21 @@ if selected == "Titanic Survival Prediction":
             titanic_survival = "Dead"
 
     st.success(f"Predicted Survival: {titanic_survival}")
+
+if selected == "Connect":
+    import streamlit as st
+
+    st.title("Connect with Me")
+    st.markdown("""
+        Feel free to reach out to me via email or connect with me on LinkedIn and GitHub! 💬
+    """)
+    st.write("")
+
+    st.subheader("Contact Information 📩")
+    st.write("**Name:** Aryan Shah")
+    st.write("**Email:** aryanshah1957@gmail.com")
+    st.write("")
+
+    st.subheader("Social Media 🌍")
+    st.write("[LinkedIn](https://www.linkedin.com/in/aryanashah/) 🔗")
+    st.write("[GitHub](https://github.com/AryanShah30) 🔗")
