@@ -67,6 +67,11 @@ if selected == "Index":
         "- Titanic Survival Prediction: Predict survival chances on the Titanic based on passenger details."
     )
     st.write("Select a prediction task from the sidebar to get started.")
+    st.markdown("""
+    <div style='color: gray; font-size: 15px;'>
+        Last updated on 29/06/2024.
+    </div>
+    """, unsafe_allow_html=True)
 
 if selected == "Loan Status Prediction":
     st.title("Loan Status Prediction")
