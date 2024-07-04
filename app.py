@@ -52,6 +52,11 @@ with st.sidebar:
 
 if selected == "Index":
     st.title("Machine Learning Predictive Insights")
+    st.markdown("""
+    <div style='color: gray; font-size: 15px;'>
+        Last updated on 19/06/2024.
+    </div>
+    """, unsafe_allow_html=True)
     st.markdown("---")
     st.subheader(" Explore our models designed to predict various outcomes:")
     st.write(
@@ -67,11 +72,6 @@ if selected == "Index":
         "- Titanic Survival Prediction: Predict survival chances on the Titanic based on passenger details."
     )
     st.write("Select a prediction task from the sidebar to get started.")
-    st.markdown("""
-    <div style='color: gray; font-size: 15px;'>
-        Last updated on 19/06/2024.
-    </div>
-    """, unsafe_allow_html=True)
 
 if selected == "Loan Status Prediction":
     st.title("Loan Status Prediction")
