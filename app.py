@@ -69,7 +69,7 @@ if selected == "Index":
     st.write("Select a prediction task from the sidebar to get started.")
     st.markdown("""
     <div style='color: gray; font-size: 15px;'>
-        Last updated on 29/06/2024.
+        Last updated on 19/06/2024.
     </div>
     """, unsafe_allow_html=True)
 
